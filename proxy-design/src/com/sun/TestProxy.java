@@ -10,7 +10,7 @@ public class TestProxy {
 	}
 }
 
-class HZ implements Proxy {
+class HZ implements Subject {
 	// public void prepare() {
 	// System.out.println("准备唱歌");
 	// }
@@ -24,7 +24,7 @@ class HZ implements Proxy {
 	// }
 }
 
-class Jack implements Proxy {
+class Jack implements Subject {
 	// public void prepare() {
 	// System.out.println("准备唱歌");
 	// }
@@ -38,15 +38,15 @@ class Jack implements Proxy {
 	// }
 }
 
-interface Proxy {
+interface Subject {
 	public void sing();
 }
 
 class ProxySubject {
-	public Proxy proxy;
+	public Subject subject;
 
-	public ProxySubject(Proxy proxy) {
-		this.proxy = proxy;
+	public ProxySubject(Subject subject) {
+		this.subject = subject;
 	}
 
 	public void prepare() {
@@ -59,7 +59,7 @@ class ProxySubject {
 
 	public void make() {
 		this.prepare();
-		this.proxy.sing();
+		this.subject.sing();
 		this.shutDowm();
 		
 		
