@@ -21,7 +21,6 @@ public class TestFactoy {
 		// stu1.play();
 		//student.class的参数是字节码
 		Student stu1 = Factoy.getIntance(Student0.class);
-
 		stu1.eat();
 		stu1.study();
 		stu1.play();
