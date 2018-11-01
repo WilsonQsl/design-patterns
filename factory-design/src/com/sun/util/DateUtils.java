@@ -34,7 +34,4 @@ public class DateUtils {
 		String time = LocalTime.now().getHour()+":"+LocalTime.now().getMinute()+":"+LocalTime.now().getSecond();
 		return time;
 	}
-	public static void main(String[] args) {
-		System.out.println(LocalDateTime.now().getDayOfWeek());
-	}
 }
