@@ -14,28 +14,30 @@ public class Factoy {
 }
 
 class Student0 implements Student {
+	@Override
 	public void eat() {
 		System.out.println("小明要吃饭");
 	}
-
+	@Override
 	public void study() {
 		System.out.println("小明要用电脑");
 	}
-
+	@Override
 	public void play() {
 		System.out.println("小明要出去玩");
 	}
 }
 
 class Student1 implements Student {
+	@Override
 	public void eat() {
 		System.out.println("小红要吃饭");
 	}
-
+	@Override
 	public void study() {
 		System.out.println("小红要用电脑");
 	}
-
+	@Override
 	public void play() {
 		System.out.println("小红要出去玩");
 	}
