@@ -1,11 +1,11 @@
 package com.sun;
 
 /**
- * ÀÁºº 
- * 1¡¢ÉùÃ÷Ò»¸ö¾²Ì¬µÄÀàµÄÒıÓÃ 
- * 2¡¢Ğ´Ò»¸ö¾²Ì¬·½·¨ÅĞ¶ÏÒıÓÃÊÇ·ñÎª¿Õ£¬Èç¹ûÎª¿Õ£¬Ôònew Ò»¸ö¶ÔÏó¸øËû
- * 3¡¢·µ»ØÒ»¸ö¶ÔÏó»ØÈ¥
- * 4¡¢Ïß³Ì²»°²È«µÄ£¬ÔÚ¶àÏß³Ì²ãµÄÇé¿öÏÂ²»¿ÉÊ¹ÓÃ
+ * æ‡’æ±‰ 
+ * 1ã€å£°æ˜ä¸€ä¸ªé™æ€çš„ç±»çš„å¼•ç”¨ 
+ * 2ã€å†™ä¸€ä¸ªé™æ€æ–¹æ³•åˆ¤æ–­å¼•ç”¨æ˜¯å¦ä¸ºç©ºï¼Œå¦‚æœä¸ºç©ºï¼Œåˆ™new ä¸€ä¸ªå¯¹è±¡ç»™ä»–
+ * 3ã€è¿”å›ä¸€ä¸ªå¯¹è±¡å›å»
+ * 4ã€çº¿ç¨‹ä¸å®‰å…¨çš„ï¼Œåœ¨å¤šçº¿ç¨‹å±‚çš„æƒ…å†µä¸‹ä¸å¯ä½¿ç”¨
  */
 public class SingLetonLayz {
 	private static SingLetonLayz singLetonLayz;
@@ -22,7 +22,7 @@ public class SingLetonLayz {
 }
 
 /**
- * È±µã£ºĞ§ÂÊÌ«µÍÁË£¬Ã¿¸öÏß³ÌÔÚÏë»ñµÃÀàµÄÊµÀıÊ±ºò£¬Ö´ĞĞgetInstance()·½·¨¶¼Òª½øĞĞÍ¬²½¡£ ÓÅµã£ºÏß³Ì°²È«
+ * ç¼ºç‚¹ï¼šæ•ˆç‡å¤ªä½äº†ï¼Œæ¯ä¸ªçº¿ç¨‹åœ¨æƒ³è·å¾—ç±»çš„å®ä¾‹æ—¶å€™ï¼Œæ‰§è¡ŒgetInstance()æ–¹æ³•éƒ½è¦è¿›è¡ŒåŒæ­¥ã€‚ ä¼˜ç‚¹ï¼šçº¿ç¨‹å®‰å…¨
  * 
  * @author Administrator
  *
@@ -33,7 +33,7 @@ class SingLetonLayzA {
 	private SingLetonLayzA() {
 	}
 
-	// ·ÀÖ¹¶àÏß³ÌµÄÊ±ºòÒª¼ÓÉÏsynchronized
+	// é˜²æ­¢å¤šçº¿ç¨‹çš„æ—¶å€™è¦åŠ ä¸Šsynchronized
 	public static synchronized SingLetonLayzA getIntance() {
 		if (singLetonLayz == null) {
 			singLetonLayz = new SingLetonLayzA();
@@ -43,18 +43,18 @@ class SingLetonLayzA {
 }
 
 /**
- * Ë«ÖØ¼ì²é[ÍÆ¼öÓÃ]
+ * åŒé‡æ£€æŸ¥[æ¨èç”¨]
  * 
  * @author Administrator
  *
  */
 class SingLetonLayzB {
-	private static SingLetonLayzB singLetonLayz;
+	private volatile static SingLetonLayzB singLetonLayz;
 
 	private SingLetonLayzB() {
 	}
 
-	// ·ÀÖ¹¶àÏß³ÌµÄÊ±ºòÒª¼ÓÉÏsynchronized
+	// é˜²æ­¢å¤šçº¿ç¨‹çš„æ—¶å€™è¦åŠ ä¸Šsynchronized
 	public static SingLetonLayzB getIntance() {
 		if (singLetonLayz == null) {
 			synchronized (SingLetonLayzB.class) {
@@ -68,7 +68,7 @@ class SingLetonLayzB {
 }
 
 /**
- * ¾²Ì¬ÄÚ²¿Àà[ÍÆ¼öÓÃ]
+ * é™æ€å†…éƒ¨ç±»[æ¨èç”¨]
  * 
  * @author Administrator
  *
@@ -88,7 +88,7 @@ class SingletonC {
 }
 
 /**
- * Ã¶¾Ù[ÍÆ¼öÓÃ]
+ * æšä¸¾[æ¨èç”¨]
  * 
  * @author Administrator
  *
