@@ -5,59 +5,59 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * ¶¯Ì¬´úÀíÖ÷ÒªÓĞÈçÏÂÌØµã£º ´úÀí¶ÔÏó²»ĞèÒªÊµÏÖÄ¿±ê¶ÔÏóµÄ½Ó¿Ú¡£
- * ´úÀí¶ÔÏóµÄÉú³É£¬Ê¹ÓÃµÄÊÇJavaµÄAPI£¬¶¯Ì¬µÄÔÚÄÚ´æÖĞ¹¹¼ş´úÀí¶ÔÏó(ÕâĞèÒªÎÒÃÇÖ¸¶¨´´½¨´úÀí¶ÔÏó/Ä¿±ê¶ÔÏóµÄ½Ó¿ÚµÄÀàĞÍ)¡£
- * ¶¯Ì¬´úÀíÒ²½Ğ×öJDK´úÀí¡¢½Ó¿Ú´úÀí¡£
+ * åŠ¨æ€ä»£ç†ä¸»è¦æœ‰å¦‚ä¸‹ç‰¹ç‚¹ï¼š ä»£ç†å¯¹è±¡ä¸éœ€è¦å®ç°ç›®æ ‡å¯¹è±¡çš„æ¥å£ã€‚
+ * ä»£ç†å¯¹è±¡çš„ç”Ÿæˆï¼Œä½¿ç”¨çš„æ˜¯Javaçš„APIï¼ŒåŠ¨æ€çš„åœ¨å†…å­˜ä¸­æ„ä»¶ä»£ç†å¯¹è±¡(è¿™éœ€è¦æˆ‘ä»¬æŒ‡å®šåˆ›å»ºä»£ç†å¯¹è±¡/ç›®æ ‡å¯¹è±¡çš„æ¥å£çš„ç±»å‹)ã€‚
+ * åŠ¨æ€ä»£ç†ä¹Ÿå«åšJDKä»£ç†ã€æ¥å£ä»£ç†ã€‚
  */
 public class TestJDKProxy {
 	public static void main(String[] args) {
-		// Ä¿±ê¶ÔÏó
+		// ç›®æ ‡å¯¹è±¡
 		RelanSubject userDao = new RelanSubject();
-		// Ô­Ê¼ÀàĞÍ class com.sschen.proxy.UserDao
+		// åŸå§‹ç±»å‹ class com.sschen.proxy.UserDao
 		System.out.println(userDao.getClass());
-		// ¸ø¶¨Ä¿±ê¶ÔÏó£¬¶¯Ì¬´´½¨´úÀí¶ÔÏó
+		// ç»™å®šç›®æ ‡å¯¹è±¡ï¼ŒåŠ¨æ€åˆ›å»ºä»£ç†å¯¹è±¡
 		JdkSubject proxy = (JdkSubject) new ProxyFactory(userDao).getProxyInstance();
-		// ´úÀí¶ÔÏóÀàĞÍ class com.sun.proxy.$Proxy0
+		// ä»£ç†å¯¹è±¡ç±»å‹ class com.sun.proxy.$Proxy0
 		System.out.println(proxy.getClass());
 		proxy.sing();
 	}
 }
 
-// Ä¿±ê½Ó¿Ú
+// ç›®æ ‡æ¥å£
 interface JdkSubject {
 	public void sing();
 }
 
-// Ä¿±ê¶ÔÏó
+// ç›®æ ‡å¯¹è±¡
 class RelanSubject implements JdkSubject {
 
 	@Override
 	public void sing() {
-		System.out.println("³ª¸è");
+		System.out.println("å”±æ­Œ");
 	}
 
 }
 
 /**
- * ´´½¨¶¯Ì¬´úÀí¶ÔÏó ¶¯Ì¬´úÀí¶ÔÏó²»ĞèÒªÊµÏÖ½Ó¿Ú£¬µ«ÊÇĞèÒªÖ¸¶¨½Ó¿ÚÀàĞÍ
+ * åˆ›å»ºåŠ¨æ€ä»£ç†å¯¹è±¡ åŠ¨æ€ä»£ç†å¯¹è±¡ä¸éœ€è¦å®ç°æ¥å£ï¼Œä½†æ˜¯éœ€è¦æŒ‡å®šæ¥å£ç±»å‹
  */
 class ProxyFactory {
-	// Î¬»¤Ò»¸öÄ¿±ê¶ÔÏó
+	// ç»´æŠ¤ä¸€ä¸ªç›®æ ‡å¯¹è±¡
 	private Object target;
 
-	// ¶ÔÏó¹¹ÔìÊ±£¬Ìá¹©Ä¿±ê¶ÔÏó
+	// å¯¹è±¡æ„é€ æ—¶ï¼Œæä¾›ç›®æ ‡å¯¹è±¡
 	public ProxyFactory(Object target) {
 		this.target = target;
 	}
 
-	// ¸øÄ¿±ê¶ÔÏóÉú³É´úÀí¶ÔÏó
+	// ç»™ç›®æ ‡å¯¹è±¡ç”Ÿæˆä»£ç†å¯¹è±¡
 	public Object getProxyInstance() {
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(),
 				new InvocationHandler() {
 					@Override
 					public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 						System.out.println("Begin Transaction");
-						// Ö´ĞĞÄ¿±ê¶ÔÏó·½·¨
+						// æ‰§è¡Œç›®æ ‡å¯¹è±¡æ–¹æ³•
 						Object returnValue = method.invoke(target, args);
 						System.out.println("Commit Transaction");
 						return returnValue;
@@ -66,7 +66,7 @@ class ProxyFactory {
 	}
 }
 /**
- * ClassLoader loader£ºÖ¸¶¨µ±Ç°Ä¿±ê¶ÔÏóÊ¹ÓÃÀà¼ÓÔØÆ÷£¬»ñÈ¡¼ÓÔØÆ÷µÄ·½·¨ÊÇ¹Ì¶¨µÄ¡£ Class<?>[]
- * interfaces£ºÄ¿±ê¶ÔÏóÊµÏÖµÄ½Ó¿ÚÀàĞÍ£¬Ê¹ÓÃ·ºĞÍ·½Ê½È·ÈÏÀàĞÍ¡£ InvocationHandler
- * h£ºÊÂ¼ş´¦Àí¡£Ö´ĞĞÄ¿±ê¶ÔÏóµÄ·½·¨Ê±£¬»á´¥·¢ÊÂ¼ş´¦ÀíÆ÷µÄ·½·¨£¬»á°Ñµ±Ç°Ö´ĞĞÄ¿±ê¶ÔÏóµÄ·½·¨×÷Îª²ÎÊı´«Èë¡£
+ * ClassLoader loaderï¼šæŒ‡å®šå½“å‰ç›®æ ‡å¯¹è±¡ä½¿ç”¨ç±»åŠ è½½å™¨ï¼Œè·å–åŠ è½½å™¨çš„æ–¹æ³•æ˜¯å›ºå®šçš„ã€‚ Class<?>[]
+ * interfacesï¼šç›®æ ‡å¯¹è±¡å®ç°çš„æ¥å£ç±»å‹ï¼Œä½¿ç”¨æ³›å‹æ–¹å¼ç¡®è®¤ç±»å‹ã€‚ InvocationHandler
+ * hï¼šäº‹ä»¶å¤„ç†ã€‚æ‰§è¡Œç›®æ ‡å¯¹è±¡çš„æ–¹æ³•æ—¶ï¼Œä¼šè§¦å‘äº‹ä»¶å¤„ç†å™¨çš„æ–¹æ³•ï¼Œä¼šæŠŠå½“å‰æ‰§è¡Œç›®æ ‡å¯¹è±¡çš„æ–¹æ³•ä½œä¸ºå‚æ•°ä¼ å…¥ã€‚
  */

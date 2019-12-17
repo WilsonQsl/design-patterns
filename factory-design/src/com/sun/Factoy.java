@@ -16,30 +16,30 @@ public class Factoy {
 class Student0 implements Student {
 	@Override
 	public void eat() {
-		System.out.println("Ğ¡Ã÷Òª³Ô·¹");
+		System.out.println("å°æ˜è¦åƒé¥­");
 	}
 	@Override
 	public void study() {
-		System.out.println("Ğ¡Ã÷ÒªÓÃµçÄÔ");
+		System.out.println("å°æ˜è¦ç”¨ç”µè„‘");
 	}
 	@Override
 	public void play() {
-		System.out.println("Ğ¡Ã÷Òª³öÈ¥Íæ");
+		System.out.println("å°æ˜è¦å‡ºå»ç©");
 	}
 }
 
 class Student1 implements Student {
 	@Override
 	public void eat() {
-		System.out.println("Ğ¡ºìÒª³Ô·¹");
+		System.out.println("å°çº¢è¦åƒé¥­");
 	}
 	@Override
 	public void study() {
-		System.out.println("Ğ¡ºìÒªÓÃµçÄÔ");
+		System.out.println("å°çº¢è¦ç”¨ç”µè„‘");
 	}
 	@Override
 	public void play() {
-		System.out.println("Ğ¡ºìÒª³öÈ¥Íæ");
+		System.out.println("å°çº¢è¦å‡ºå»ç©");
 	}
 }
 

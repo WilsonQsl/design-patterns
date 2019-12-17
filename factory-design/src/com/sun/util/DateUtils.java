@@ -7,8 +7,8 @@ import java.time.format.DateTimeFormatter;
 
 public class DateUtils {
 	/**
-	 * »ñÈ¡µ±Ç°Ê±¼äµÄÄê£¬ÔÂ£¬ÈÕ
-	 * @return ·µ»ØµÄ¸ñÊ½£º2018-11-01
+	 * è·å–å½“å‰æ—¶é—´çš„å¹´ï¼Œæœˆï¼Œæ—¥
+	 * @return è¿”å›çš„æ ¼å¼ï¼š2018-11-01
 	 */
 	public static String getCurrentDate() {
 		LocalDate localdate = LocalDate.now();
@@ -17,8 +17,8 @@ public class DateUtils {
 		return curDate;
 	}
 	/**
-	 * »ñÈ¡µ±Ç°Ê±¼äµÄÄê£¬ÔÂ£¬ÈÕ£¬Ê±£¬·Ö£¬Ãë
-	 * @return ·µ»Ø¸ñÊ½£º2018-11-01 14:11:28
+	 * è·å–å½“å‰æ—¶é—´çš„å¹´ï¼Œæœˆï¼Œæ—¥ï¼Œæ—¶ï¼Œåˆ†ï¼Œç§’
+	 * @return è¿”å›æ ¼å¼ï¼š2018-11-01 14:11:28
 	 */
 	public static String getCurrentTime() {
 		LocalDateTime localDateTime = LocalDateTime.now();
@@ -27,8 +27,8 @@ public class DateUtils {
 		return curTime;
 	}
 	/**
-	 * »ñÈ¡Ê±£¬·Ö£¬Ãë
-	 * @return ·µ»Ø¸ñÊ½£º15:43:48
+	 * è·å–æ—¶ï¼Œåˆ†ï¼Œç§’
+	 * @return è¿”å›æ ¼å¼ï¼š15:43:48
 	 */
 	public static String getTime(){
 		String time = LocalTime.now().getHour()+":"+LocalTime.now().getMinute()+":"+LocalTime.now().getSecond();
