@@ -1,2 +1,7 @@
-/.metadata
-/RemoteSystemsTempFiles
+/.metadata/
+**/.settings/
+**/target/
+**/.classpath
+**/.project
+.DS_Store
+**/.factorypath
